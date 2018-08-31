@@ -14,7 +14,7 @@ public class Calculator implements SimpleCalculator {
     public void calculate(Path input,
                           Path output) {
         try {
-            LinkedList<LinkedList<String>> expressionList = SAXImplementation.SAXParser(input);
+            LinkedList<LinkedList<String>> expressionList = SAXParserImplementation.SAXParser(input);
             LinkedList<String> resultList = new LinkedList<>();
 
             for (LinkedList<String> list : expressionList) {
@@ -48,7 +48,7 @@ public class Calculator implements SimpleCalculator {
 
     private static String calculator(List<Token> prefixTokenList) throws EmptyStackException {
         Stack<Double> stack = new Stack<>();
-        double A, B, result;
+        Double A, B, result;
         try {
             Collections.reverse(prefixTokenList);
             for (Token token : prefixTokenList) {
@@ -73,15 +73,6 @@ public class Calculator implements SimpleCalculator {
         return String.valueOf(result);
     }
 
-    /**
-     * Executes basic math operations
-     *
-     * @param op: '+', '-', '*', '/'
-     * @param A:  first operand
-     * @param B:  second operand
-     * @return Double result of basic math operations
-     */
-
     private static Double basicOperation(String op,
                                          double A,
                                          double B) {
@@ -99,9 +90,13 @@ public class Calculator implements SimpleCalculator {
                 result = A * B;
                 break;
             case "DIV":
-                if (B == 0)
+                try {
+                    if (B == 0)
+                        throw new ArithmeticException();
+                    result = A / B;
+                } catch (ArithmeticException e) {
                     return null;
-                result = A / B;
+                }
         }
         return result;
     }
