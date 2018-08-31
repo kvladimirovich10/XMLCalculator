@@ -21,17 +21,17 @@ public class Calculator implements SimpleCalculator {
                 resultList.add(evaluate(list));
             }
 
-            ResultXMLWriter.writeResultToXML(output, resultList);
+            XMLWriter.writeResultToXML(output, resultList);
         } catch (ParserConfigurationException | TransformerException | IOException | SAXException e) {
             e.printStackTrace();
         }
     }
 
-    private static String evaluate(LinkedList<String> stringTokens) {
+    private static String evaluate(LinkedList<String> stringTokenList) {
 
         List<Token> prefixTokenList = new ArrayList<>();
 
-        for (String token : stringTokens) {
+        for (String token : stringTokenList) {
             prefixTokenList.add(new Token(token));
         }
 
@@ -43,7 +43,6 @@ public class Calculator implements SimpleCalculator {
      *
      * @param prefixTokenList: list of tokens in a prefix form
      * @return String result of prefix calculations
-     * @throws {@link EmptyStackException} in case of division by 0
      */
 
     private static String calculator(List<Token> prefixTokenList) throws EmptyStackException {
