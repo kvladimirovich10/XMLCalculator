@@ -13,7 +13,7 @@ public class Calculator implements SimpleCalculator {
     public void calculate(Path file,
                           Path resultFile) {
         try {
-            LinkedList<LinkedList<String>> expressionList = SAXPars.SAXParser(file.toString());
+            LinkedList<LinkedList<String>> expressionList = SAXImplementation.SAXParser(file.toString());
 
             for (LinkedList<String> list : expressionList) {
                 System.out.println(evaluate(list));
@@ -27,7 +27,7 @@ public class Calculator implements SimpleCalculator {
         }
     }
 
-    public static String evaluate(LinkedList<String> stringTokens) {
+    private static String evaluate(LinkedList<String> stringTokens) {
 
         List<Token> prefixTokenList = new ArrayList<>();
 
@@ -46,7 +46,7 @@ public class Calculator implements SimpleCalculator {
      * @throws {@link EmptyStackException} in case of division by 0
      */
 
-    private static String calculator(List<Token> prefixTokenList) {
+    private static String calculator(List<Token> prefixTokenList) throws EmptyStackException {
         Stack<Double> stack = new Stack<>();
         double A, B, result;
         try {
