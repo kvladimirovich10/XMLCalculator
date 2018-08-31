@@ -3,6 +3,7 @@ package com.openwaygroup.task.calculator;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
@@ -10,19 +11,18 @@ import java.util.*;
 public class Calculator implements SimpleCalculator {
 
     @Override
-    public void calculate(Path file,
-                          Path resultFile) {
+    public void calculate(Path input,
+                          Path output) {
         try {
-            LinkedList<LinkedList<String>> expressionList = SAXImplementation.SAXParser(file.toString());
+            LinkedList<LinkedList<String>> expressionList = SAXImplementation.SAXParser(input);
+            LinkedList<String> resultList = new LinkedList<>();
 
             for (LinkedList<String> list : expressionList) {
-                System.out.println(evaluate(list));
+                resultList.add(evaluate(list));
             }
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+
+            ResultXMLWriter.writeResultToXML(output, resultList);
+        } catch (ParserConfigurationException | TransformerException | IOException | SAXException e) {
             e.printStackTrace();
         }
     }
