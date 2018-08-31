@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simpleCalculator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="SimpleCalculator.xsd">
+<simpleCalculator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:noNamespaceSchemaLocation="SimpleCalculator.xsd">
     <expressions>
+
         <expression>
             <operation OperationType="MUL">
                 <operation OperationType="SUB">
@@ -25,6 +27,57 @@
                 </operation>
             </operation>
         </expression>
+
+        <expression>
+            <operation OperationType="DIV">
+                <operation OperationType="MUL">
+                    <operation OperationType="SUB">
+                        <operation OperationType="SUM">
+                            <arg>2</arg>
+                            <arg>4</arg>
+                        </operation>
+                        <operation OperationType="DIV">
+                            <arg>1</arg>
+                            <arg>4</arg>
+                        </operation>
+                    </operation>
+                    <operation OperationType="SUB">
+                        <operation OperationType="SUM">
+                            <arg>12</arg>
+                            <arg>55</arg>
+                        </operation>
+                        <operation OperationType="MUL">
+                            <arg>123</arg>
+                            <arg>4</arg>
+                        </operation>
+                    </operation>
+                </operation>
+                <operation OperationType="MUL">
+                    <operation OperationType="SUB">
+                        <operation OperationType="SUM">
+                            <arg>2</arg>
+                            <arg>17</arg>
+                        </operation>
+                        <operation OperationType="DIV">
+                            <arg>1</arg>
+                            <arg>4</arg>
+                        </operation>
+                    </operation>
+                    <operation OperationType="SUB">
+                        <operation OperationType="SUM">
+                            <arg>12</arg>
+                            <arg>32</arg>
+                        </operation>
+                        <operation OperationType="MUL">
+                            <arg>42</arg>
+                            <arg>4</arg>
+                        </operation>
+                    </operation>
+                </operation>
+            </operation>
+        </expression>
+
+
         <expression>
             <operation OperationType="SUB">
                 <operation OperationType="MUL">
@@ -49,5 +102,6 @@
                 </operation>
             </operation>
         </expression>
+
     </expressions>
 </simpleCalculator>
