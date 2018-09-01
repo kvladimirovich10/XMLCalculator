@@ -4,7 +4,7 @@
     <expressions>
 
         <expression>
-            <operation OperationType="MUL">
+            <operation OperationType="DIV">
                 <operation OperationType="SUB">
                     <operation OperationType="SUM">
                         <arg>2</arg>
@@ -17,19 +17,19 @@
                 </operation>
                 <operation OperationType="SUB">
                     <operation OperationType="SUM">
-                        <arg>12</arg>
-                        <arg>55</arg>
+                        <arg>1</arg>
+                        <arg>1</arg>
                     </operation>
                     <operation OperationType="MUL">
-                        <arg>123</arg>
-                        <arg>4</arg>
+                        <arg>2</arg>
+                        <arg>1</arg>
                     </operation>
                 </operation>
             </operation>
         </expression>
 
         <expression>
-            <operation OperationType="DIV">
+            <operation OperationType="SUM">
                 <operation OperationType="MUL">
                     <operation OperationType="SUB">
                         <operation OperationType="SUM">
@@ -77,27 +77,26 @@
             </operation>
         </expression>
 
-
         <expression>
-            <operation OperationType="SUB">
+            <operation OperationType="DIV">
                 <operation OperationType="MUL">
                     <operation OperationType="DIV">
                         <arg>211</arg>
-                        <arg>114</arg>
+                        <arg>4</arg>
                     </operation>
                     <operation OperationType="DIV">
                         <arg>13</arg>
                         <arg>41</arg>
                     </operation>
                 </operation>
-                <operation OperationType="SUB">
+                <operation OperationType="SUM">
                     <operation OperationType="SUM">
                         <arg>123</arg>
                         <arg>1235</arg>
                     </operation>
                     <operation OperationType="MUL">
                         <arg>55</arg>
-                        <arg>1111</arg>
+                        <arg>11</arg>
                     </operation>
                 </operation>
             </operation>

@@ -2,13 +2,13 @@
 <simpleCalculator>
     <expressionResults>
         <expressionResult>
-            <result>-2443.75</result>
+            <result>null</result>
         </expressionResult>
         <expressionResult>
-            <result>1.0510752688172043</result>
+            <result>-4768.75</result>
         </expressionResult>
         <expressionResult>
-            <result>59747.58686350021</result>
+            <result>0.00852043288644807</result>
         </expressionResult>
     </expressionResults>
 </simpleCalculator>

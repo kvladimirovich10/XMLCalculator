@@ -11,15 +11,13 @@ import java.util.*;
 public class Calculator implements SimpleCalculator {
 
     @Override
-    public void calculate(Path input,
-                          Path output) {
+    public void calculate(Path input, Path output) {
         try {
             LinkedList<LinkedList<String>> expressionList = SAXParserImplementation.SAXParser(input);
             LinkedList<String> resultList = new LinkedList<>();
 
-            for (LinkedList<String> list : expressionList) {
+            for (LinkedList<String> list : expressionList)
                 resultList.add(evaluate(list));
-            }
 
             XMLWriter.writeResultToXML(output, resultList);
         } catch (ParserConfigurationException | TransformerException | IOException | SAXException e) {
@@ -31,9 +29,8 @@ public class Calculator implements SimpleCalculator {
 
         List<Token> prefixTokenList = new ArrayList<>();
 
-        for (String token : stringTokenList) {
+        for (String token : stringTokenList)
             prefixTokenList.add(new Token(token));
-        }
 
         return calculator(prefixTokenList);
     }
@@ -55,7 +52,7 @@ public class Calculator implements SimpleCalculator {
                     A = stack.pop();
                     B = stack.pop();
                     try {
-                        result = basicOperation(token.getOp(), A, B);
+                        result = basicOperation(token.getOperator(), A, B);
                     } catch (NullPointerException e) {
                         return null;
                     }
@@ -66,19 +63,14 @@ public class Calculator implements SimpleCalculator {
         } catch (EmptyStackException e) {
             return null;
         }
-
-        result = stack.pop();
-
-        return String.valueOf(result);
+        return String.valueOf(stack.pop());
     }
 
-    private static Double basicOperation(String op,
-                                         double A,
-                                         double B) {
+    private static Double basicOperation(String operator, double A, double B) {
 
         Double result = 0.0;
 
-        switch (op) {
+        switch (operator) {
             case "SUM":
                 result = A + B;
                 break;
