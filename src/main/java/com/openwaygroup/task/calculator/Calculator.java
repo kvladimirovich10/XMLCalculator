@@ -1,5 +1,6 @@
 package com.openwaygroup.task.calculator;
 
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -9,19 +10,34 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class Calculator implements SimpleCalculator {
+    private static final Logger log = Logger.getLogger(Main.class);
 
     @Override
     public void calculate(Path input, Path output) {
         try {
-            LinkedList<LinkedList<String>> expressionList = SAXParserImplementation.SAXParser(input);
+
+            log.info("Start of the session");
+            LinkedList<LinkedList<String>> expressionList = SAXParserImplementation.SAXParser(input, log);
+
             LinkedList<String> resultList = new LinkedList<>();
 
             for (LinkedList<String> list : expressionList)
                 resultList.add(evaluate(list));
 
-            XMLWriter.writeResultToXML(output, resultList);
-        } catch (ParserConfigurationException | TransformerException | IOException | SAXException e) {
-            e.printStackTrace();
+            XMLWriter.writeResultToXML(output, resultList, log);
+            log.info("End of the session\n");
+        }
+        catch (ParserConfigurationException e) {
+            log.error("ParserConfigurationException",e);
+        }
+        catch (TransformerException e) {
+            log.error("TransformerException",e);
+        }
+        catch ( IOException e) {
+            log.error("IOException",e);
+        }
+        catch (SAXException e) {
+            log.error("SAXException",e);
         }
     }
 
@@ -53,16 +69,20 @@ public class Calculator implements SimpleCalculator {
                     B = stack.pop();
                     try {
                         result = basicOperation(token.getOperator(), A, B);
+                        if (result == null)
+                            throw new NullPointerException();
                     } catch (NullPointerException e) {
-                        return null;
+                        return "Division by 0 occurred";
                     }
                     stack.push(result);
                 } else
                     stack.push(token.getValue());
             }
         } catch (EmptyStackException e) {
+            log.error("EmptyStackException", e);
             return null;
         }
+        log.info("Expression's calculated");
         return String.valueOf(stack.pop());
     }
 
@@ -86,6 +106,7 @@ public class Calculator implements SimpleCalculator {
                         throw new ArithmeticException();
                     result = A / B;
                 } catch (ArithmeticException e) {
+                    log.error("Division by 0");
                     return null;
                 }
         }
