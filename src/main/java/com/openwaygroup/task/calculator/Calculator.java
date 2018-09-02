@@ -11,33 +11,31 @@ import java.util.*;
 
 public class Calculator implements SimpleCalculator {
     private static final Logger log = Logger.getLogger(Main.class);
+    LinkedList<String> resultList = new LinkedList<>();
+    LinkedList<LinkedList<String>> expressionList;
 
     @Override
     public void calculate(Path input, Path output) {
         try {
-
             log.info("Start of the session");
-            LinkedList<LinkedList<String>> expressionList = SAXParserImplementation.SAXParser(input, log);
 
-            LinkedList<String> resultList = new LinkedList<>();
+            expressionList = SAXParserImplementation.SAXParser(input, log);
 
             for (LinkedList<String> list : expressionList)
                 resultList.add(evaluate(list));
 
+
             XMLWriter.writeResultToXML(output, resultList, log);
+
             log.info("End of the session\n");
-        }
-        catch (ParserConfigurationException e) {
-            log.error("ParserConfigurationException",e);
-        }
-        catch (TransformerException e) {
-            log.error("TransformerException",e);
-        }
-        catch ( IOException e) {
-            log.error("IOException",e);
-        }
-        catch (SAXException e) {
-            log.error("SAXException",e);
+        } catch (ParserConfigurationException e) {
+            log.error("ParserConfigurationException\n", e);
+        } catch (TransformerException e) {
+            log.error("TransformerException\n", e);
+        } catch (IOException e) {
+            log.error("IOException\n", e);
+        } catch (SAXException e) {
+            log.error("SAXException\n", e);
         }
     }
 

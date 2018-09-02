@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simpleCalculator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:noNamespaceSchemaLocation="../../main/resources/SimpleCalculator.xsd">
+    <expressions>
+
+        <expression>
+            <operation OperationType="DIV">
+                <operation OperationType="MUL">
+                    <operation OperationType="DIV">
+                        <arg>13</arg>
+                        <arg>43</arg>
+                    </operation>
+                    <operation OperationType="DIV">
+                        <arg>3995</arg>
+                        <arg>2</arg>
+                    </operation>
+                </operation>
+                <operation OperationType="SUM">
+                    <operation OperationType="SUM">
+                        <arg>20</arg>
+                        <arg>22</arg>
+                    </operation>
+                    <operation OperationType="MUL">
+                        <arg>1</arg>
+                        <arg>0</arg>
+                    </operation>
+                </operation>
+            </operation>
+        </expression>
+
+        <expression>
+            <operation OperationType="DIV">
+                <arg>1</arg>
+                <arg>0</arg>
+            </operation>
+        </expression>
+
+        <expression>
+            <operation OperationType="SUB">
+                <operation OperationType="MUL">
+                    <arg>10</arg>
+                    <arg>10</arg>
+                </operation>
+                <operation OperationType="SUM">
+                    <arg>5</arg>
+                    <arg>5</arg>
+                </operation>
+            </operation>
+        </expression>
+
+    </expressions>
+</simpleCalculator>

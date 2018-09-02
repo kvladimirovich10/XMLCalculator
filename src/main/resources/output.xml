@@ -2,13 +2,7 @@
 <simpleCalculator>
     <expressionResults>
         <expressionResult>
-            <result>Division by 0 occurred</result>
-        </expressionResult>
-        <expressionResult>
-            <result>-4768.75</result>
-        </expressionResult>
-        <expressionResult>
-            <result>0.00852043288644807</result>
+            <result>-6927361.808722123</result>
         </expressionResult>
     </expressionResults>
 </simpleCalculator>
