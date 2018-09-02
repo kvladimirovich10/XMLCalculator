@@ -1,0 +1,32 @@
+INFO  [main] (Calculator.java:19) - Start of the session
+INFO  [main] (SAXParserImplementation.java:28) - File's successfully parsed
+ERROR [main] (Calculator.java:109) - Division by 0
+INFO  [main] (Calculator.java:85) - Expression's calculated
+INFO  [main] (Calculator.java:85) - Expression's calculated
+INFO  [main] (XMLWriter.java:56) - File's successfully written
+INFO  [main] (Calculator.java:28) - End of the session
+
+INFO  [main] (Calculator.java:19) - Start of the session
+INFO  [main] (SAXParserImplementation.java:28) - File's successfully parsed
+ERROR [main] (Calculator.java:109) - Division by 0
+INFO  [main] (Calculator.java:85) - Expression's calculated
+INFO  [main] (Calculator.java:85) - Expression's calculated
+INFO  [main] (XMLWriter.java:56) - File's successfully written
+INFO  [main] (Calculator.java:28) - End of the session
+
+INFO  [main] (Calculator.java:19) - Start of the session
+INFO  [main] (SAXParserImplementation.java:28) - File's successfully parsed
+ERROR [main] (Calculator.java:109) - Division by 0
+INFO  [main] (Calculator.java:85) - Expression's calculated
+INFO  [main] (Calculator.java:85) - Expression's calculated
+INFO  [main] (XMLWriter.java:56) - File's successfully written
+INFO  [main] (Calculator.java:28) - End of the session
+
+INFO  [main] (Calculator.java:19) - Start of the session
+INFO  [main] (SAXParserImplementation.java:28) - File's successfully parsed
+ERROR [main] (Calculator.java:109) - Division by 0
+INFO  [main] (Calculator.java:85) - Expression's calculated
+INFO  [main] (Calculator.java:85) - Expression's calculated
+INFO  [main] (XMLWriter.java:56) - File's successfully written
+INFO  [main] (Calculator.java:28) - End of the session
+
