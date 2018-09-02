@@ -1478,3 +1478,11 @@ INFO  [main] (Calculator.java:83) - Expression's calculated
 INFO  [main] (XMLWriter.java:56) - File's successfully written
 INFO  [main] (Calculator.java:30) - End of the session
 
+INFO  [main] (Calculator.java:20) - Start of the session
+INFO  [main] (SAXParserImplementation.java:28) - File's successfully parsed
+INFO  [main] (Calculator.java:83) - Expression's calculated
+INFO  [main] (Calculator.java:83) - Expression's calculated
+INFO  [main] (Calculator.java:83) - Expression's calculated
+INFO  [main] (XMLWriter.java:56) - File's successfully written
+INFO  [main] (Calculator.java:30) - End of the session
+
