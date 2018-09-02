@@ -2,7 +2,7 @@
 <simpleCalculator>
     <expressionResults>
         <expressionResult>
-            <result>2.875</result>
+            <result>Division by 0 occurred</result>
         </expressionResult>
         <expressionResult>
             <result>-4768.75</result>

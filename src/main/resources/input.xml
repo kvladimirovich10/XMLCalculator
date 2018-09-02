@@ -2,28 +2,11 @@
 <simpleCalculator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:noNamespaceSchemaLocation="SimpleCalculator.xsd">
     <expressions>
+
         <expression>
             <operation OperationType="DIV">
-                <operation OperationType="SUB">
-                    <operation OperationType="SUM">
-                        <arg>2</arg>
-                        <arg>4</arg>
-                    </operation>
-                    <operation OperationType="DIV">
-                        <arg>1</arg>
-                        <arg>4</arg>
-                    </operation>
-                </operation>
-                <operation OperationType="SUB">
-                    <operation OperationType="SUM">
-                        <arg>1</arg>
-                        <arg>1</arg>
-                    </operation>
-                    <operation OperationType="MUL">
-                        <arg>0</arg>
-                        <arg>1</arg>
-                    </operation>
-                </operation>
+                <arg>42</arg>
+                <arg>0</arg>
             </operation>
         </expression>
 
