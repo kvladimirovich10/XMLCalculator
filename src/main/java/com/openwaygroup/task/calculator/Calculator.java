@@ -1,6 +1,5 @@
 package com.openwaygroup.task.calculator;
 
-import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -9,33 +8,34 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
 
+import static com.openwaygroup.task.calculator.Main.logger;
+
 public class Calculator implements SimpleCalculator {
-    private static final Logger log = Logger.getLogger(Main.class);
+
     LinkedList<String> resultList = new LinkedList<>();
     LinkedList<LinkedList<String>> expressionList;
 
     @Override
-    public void calculate(Path input, Path output) {
+    public void calculate(Path file, Path resultFile) {
         try {
-            log.info("Start of the session");
+            logger.info("Start of the session");
 
-            expressionList = SAXParserImplementation.SAXParser(input, log);
+            expressionList = SAXParserImplementation.SAXParser(file);
 
             for (LinkedList<String> list : expressionList)
                 resultList.add(evaluate(list));
 
+            XMLWriter.writeResultToXML(resultFile, resultList);
 
-            XMLWriter.writeResultToXML(output, resultList, log);
-
-            log.info("End of the session\n");
+            logger.info("End of the session\n");
         } catch (ParserConfigurationException e) {
-            log.error("ParserConfigurationException\n", e);
+            logger.error("ParserConfigurationException\n", e);
         } catch (TransformerException e) {
-            log.error("TransformerException\n", e);
+            logger.error("TransformerException\n", e);
         } catch (IOException e) {
-            log.error("IOException\n", e);
+            logger.error("IOException\n", e);
         } catch (SAXException e) {
-            log.error("SAXException\n", e);
+            logger.error("SAXException\n", e);
         }
     }
 
@@ -56,7 +56,7 @@ public class Calculator implements SimpleCalculator {
      * @return String result of prefix calculations
      */
 
-    private static String calculator(List<Token> prefixTokenList) throws EmptyStackException {
+    private static String calculator(List<Token> prefixTokenList) {
         Stack<Double> stack = new Stack<>();
         Double A, B, result;
         try {
@@ -66,48 +66,46 @@ public class Calculator implements SimpleCalculator {
                     A = stack.pop();
                     B = stack.pop();
                     try {
-                        result = basicOperation(token.getOperator(), A, B);
-                        if (result == null)
+                        if ((result = basicOperation(token.getOperator(), A, B)) == null)
                             throw new NullPointerException();
+                        stack.push(result);
                     } catch (NullPointerException e) {
                         return "Division by 0 occurred";
+                    } catch (Exception e) {
+                        return "Unknown operation";
                     }
-                    stack.push(result);
                 } else
                     stack.push(token.getValue());
             }
         } catch (EmptyStackException e) {
-            log.error("EmptyStackException", e);
+            logger.error("EmptyStackException", e);
             return null;
         }
-        log.info("Expression's calculated");
+        logger.info("Expression's calculated");
         return String.valueOf(stack.pop());
     }
 
-    private static Double basicOperation(String operator, double A, double B) {
-
-        Double result = 0.0;
+    private static Double basicOperation(String operator, double A, double B) throws Exception {
 
         switch (operator) {
             case "SUM":
-                result = A + B;
-                break;
+                return A + B;
             case "SUB":
-                result = A - B;
-                break;
+                return A - B;
             case "MUL":
-                result = A * B;
-                break;
+                return A * B;
             case "DIV":
                 try {
                     if (B == 0)
                         throw new ArithmeticException();
-                    result = A / B;
+                    return A / B;
                 } catch (ArithmeticException e) {
-                    log.error("Division by 0");
+                    logger.warn("Division by 0");
                     return null;
                 }
+            default:
+                logger.error("Unknown operation");
+                throw new Exception();
         }
-        return result;
     }
 }

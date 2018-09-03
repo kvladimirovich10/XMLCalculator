@@ -53,9 +53,9 @@ public class CalculatorTest {
     @Test
     public void calculatorTest3() {
 
-        List<String> tokenAssertion = new ArrayList<>(Arrays.asList("DIV", "MUL", "DIV", "13", "43", "DIV", "3995", "2", "SUM", "SUM", "20", "22", "MUL", "1", "0"));
+        List<String> tokenAssertion = new ArrayList<>(Arrays.asList("DIV", "DIV","MUL", "SUB", "SUB", "SUM", "DIV", "MUL", "SUB", "SUB", "MUL", "DIV", "DIV", "43", "4", "DIV", "14", "41", "DIV", "92", "17", "DIV", "10000", "42", "DIV", "14232", "4455", "DIV", "1254", "75", "DIV", "1", "45", "DIV", "156", "4625", "DIV", "651", "4655", "DIV", "2341", "4096705", "DIV", "901", "45", "DIV", "71", "45645", "DIV", "98451", "45"));
 
-        calculator.calculate(input, output);
+        calculator.calculate(multyLevelInput, output);
 
         Iterator iterator = tokenAssertion.listIterator();
 
@@ -69,9 +69,8 @@ public class CalculatorTest {
     public void calculatorTest4() {
         calculator.calculate(multyLevelInput, output);
 
-        String resultAssertion = "-6927361.808722123";
+        String resultAssertion = "-313929.98850796255";
 
         Assert.assertEquals(resultAssertion, calculator.resultList.getFirst());
-
     }
 }
