@@ -1782,3 +1782,79 @@ INFO  [main] (Calculator.java:83) - Expression's calculated
 INFO  [main] (XMLWriter.java:56) - File's successfully written
 INFO  [main] (Calculator.java:29) - End of the session
 
+INFO  [main] (Calculator.java:26) - Start of the session
+INFO  [main] (SAXParserImplementation.java:49) - File's successfully parsed
+WARN  [main] (Calculator.java:108) - Division by 0
+INFO  [main] (Calculator.java:89) - Expression's calculated
+INFO  [main] (Calculator.java:89) - Expression's calculated
+INFO  [main] (XMLWriter.java:62) - File's successfully written
+INFO  [main] (Calculator.java:35) - End of the session
+
+INFO  [main] (Calculator.java:26) - Start of the session
+ERROR [main] (Calculator.java:41) - IOException
+
+java.io.FileNotFoundException: /Users/kirillkiselev1/IdeaProjects/SimpleCalculator/.../input.xml (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:623)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:148)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:806)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1140)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:655)
+	at com.openwaygroup.task.calculator.SAXParserImplementation.SAXParser(SAXParserImplementation.java:28)
+	at com.openwaygroup.task.calculator.Calculator.calculate(Calculator.java:28)
+	at com.openwaygroup.task.calculator.Main.main(Main.java:27)
+INFO  [main] (Calculator.java:26) - Start of the session
+ERROR [main] (Calculator.java:41) - IOException
+
+java.io.FileNotFoundException: /Users/kirillkiselev1/IdeaProjects/SimpleCalculator/../input.xml (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:623)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:148)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:806)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1140)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:655)
+	at com.openwaygroup.task.calculator.SAXParserImplementation.SAXParser(SAXParserImplementation.java:28)
+	at com.openwaygroup.task.calculator.Calculator.calculate(Calculator.java:28)
+	at com.openwaygroup.task.calculator.Main.main(Main.java:27)
+INFO  [main] (Calculator.java:26) - Start of the session
+ERROR [main] (Calculator.java:41) - IOException
+
+java.io.FileNotFoundException: /Users/kirillkiselev1/IdeaProjects/SimpleCalculator/./input.xml (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:623)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:148)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:806)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1140)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:655)
+	at com.openwaygroup.task.calculator.SAXParserImplementation.SAXParser(SAXParserImplementation.java:28)
+	at com.openwaygroup.task.calculator.Calculator.calculate(Calculator.java:28)
+	at com.openwaygroup.task.calculator.Main.main(Main.java:27)
+INFO  [main] (Calculator.java:26) - Start of the session
+INFO  [main] (SAXParserImplementation.java:49) - File's successfully parsed
+WARN  [main] (Calculator.java:108) - Division by 0
+INFO  [main] (Calculator.java:89) - Expression's calculated
+INFO  [main] (Calculator.java:89) - Expression's calculated
+INFO  [main] (XMLWriter.java:62) - File's successfully written
+INFO  [main] (Calculator.java:35) - End of the session
+

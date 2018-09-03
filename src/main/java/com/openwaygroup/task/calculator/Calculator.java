@@ -10,11 +10,28 @@ import java.util.*;
 
 import static com.openwaygroup.task.calculator.Main.logger;
 
+/**
+ * Class Calculator implements interface SimpleCalculator that
+ * contains the only method 'calculate'
+ */
+
 public class Calculator implements SimpleCalculator {
+
+    static final String SUM = "SUM";
+    static final String SUB = "SUB";
+    static final String MUL = "MUL";
+    static final String DIV = "DIV";
 
     LinkedList<String> resultList = new LinkedList<>();
     LinkedList<LinkedList<String>> expressionList;
 
+    /**
+     * Overridden method of the interface SimpleCalculator
+     * Calls parsing method, converting method and calculating method
+     *
+     * @param file:       path to the file with expression in XML form
+     * @param resultFile: path to the file where to write results
+     */
     @Override
     public void calculate(Path file, Path resultFile) {
         try {
@@ -38,6 +55,13 @@ public class Calculator implements SimpleCalculator {
             logger.error("SAXException\n", e);
         }
     }
+
+    /**
+     * Generates list of tokens - objects of the class Token, that contains information of elements of the expression
+     *
+     * @param stringTokenList: list of tokens as String
+     * @return call method calculator that calculates prepared expression in prefix form
+     */
 
     private static String evaluate(LinkedList<String> stringTokenList) {
 
@@ -85,16 +109,24 @@ public class Calculator implements SimpleCalculator {
         return String.valueOf(stack.pop());
     }
 
+    /**
+     * Implements calculation of the basic arithmetical operations
+     *
+     * @param operator: operator as String
+     * @param A:        first operand
+     * @param B:        second operand
+     * @return call method calculator that calculates prepared expression in prefix form
+     */
     private static Double basicOperation(String operator, double A, double B) throws Exception {
 
         switch (operator) {
-            case "SUM":
+            case SUM:
                 return A + B;
-            case "SUB":
+            case SUB:
                 return A - B;
-            case "MUL":
+            case MUL:
                 return A * B;
-            case "DIV":
+            case DIV:
                 try {
                     if (B == 0)
                         throw new ArithmeticException();
